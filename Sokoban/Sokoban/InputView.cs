@@ -8,6 +8,7 @@ namespace Sokoban
 {
     public class InputView
     {
+
         public int ChooseMaze()
         {
             bool isValid = false;
@@ -33,6 +34,11 @@ namespace Sokoban
                 }
             }
             return MazeNumber;
+        }
+
+        public void KeyPress()
+        {
+            //https://stackoverflow.com/questions/5891538/listen-for-key-press-in-net-console-app
         }
     }
 }
