@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sokoban
 {
-    class Field
+   public class Field
     {
         public Crate Crate
         {
