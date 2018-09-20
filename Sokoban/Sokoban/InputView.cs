@@ -16,8 +16,7 @@ namespace Sokoban
 
             while (!isValid)
             {
-                Console.Write("> Kies een doolhof (1 - 4), s = stop");
-                Console.WriteLine();
+                Console.WriteLine("> Kies een doolhof (1 - 4), s = stop");
                 string input = Console.ReadLine();
 
                 if (input.Equals("s"))
@@ -36,9 +35,45 @@ namespace Sokoban
             return MazeNumber;
         }
 
-        public void KeyPress()
+        public void MakeAMove()
         {
-            //https://stackoverflow.com/questions/5891538/listen-for-key-press-in-net-console-app
+            bool isValid = false;
+
+            while (!isValid)
+            {
+                var input = Console.ReadKey(false).Key;
+
+                switch (input)
+                {
+                    case ConsoleKey.S:
+                        //return to main menu
+                        isValid = true;
+                        break;
+                    case ConsoleKey.R:
+                        //reset game
+                        //geen isvalid want de vraag van 'gebruik pijltjestoetsen' moet opnieuw komen
+                        break;
+                    case ConsoleKey.RightArrow:
+                        //move to right
+                        isValid = true;
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        //move to left
+                        isValid = true;
+                        break;
+                    case ConsoleKey.UpArrow:
+                        //move up
+                        isValid = true;
+                        break;
+                    case ConsoleKey.DownArrow:
+                        //move down
+                        isValid = true;
+                        break;
+                    default:
+                        //do nothing
+                        break;
+                }
+            }
         }
     }
 }

@@ -22,5 +22,17 @@ namespace Sokoban
             {
             }
         }
+
+        public void Play()
+        {
+            //hier is dus al een doolhof gekozen
+            //while (!HasNotWon)
+            //{
+                //OutputView.StandardScreen();
+                //InputView.MakeAMove();
+                //Check if has won
+                //OutputView.StandardScreen();
+            //}
+        }
     }
 }

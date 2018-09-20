@@ -11,7 +11,7 @@ namespace Sokoban
 
         public void MoveRight()
         {
-
+            //CurrentField = CurrentField.
         }
 
         public void MoveLeft()
