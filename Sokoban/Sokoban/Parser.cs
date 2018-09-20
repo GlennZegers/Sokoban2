@@ -10,13 +10,19 @@ namespace Sokoban
         private int levelWidth;
         private int levelHeight;
         private char[,] charField;
+        public Field firstField2;//MOET WEG
+        public Boolean first = true;//MOET OOOOOK WEG
         public char[,] CharField
         {
             get { return charField; }
             set { charField = value; }
         }
-
-        public void createMaze(int level)
+        public void print()//moet weg
+        {
+            OutputView p = new OutputView();
+            p.StandardScreen(firstField2, levelWidth, levelHeight);
+        }
+        public void CreateMaze(int level)
         {
             string[] maze = null;
             switch (level)
@@ -38,21 +44,15 @@ namespace Sokoban
                     break;
 
             }
-            Console.WriteLine(maze[0]);
-            Console.WriteLine(maze[1]);
-            Console.WriteLine(maze[2]);
-            Console.WriteLine(maze[3]);
-            Console.WriteLine(maze[4]);
-            Console.WriteLine(maze[5]);
-
-
             char[,] charArray = CreateCharField(maze);
             CreateFields(charArray);
+            print();
 
         }
 
         private void CreateFields(char[,] charArray)
         {
+            List<Field> fs = new List<Field>();
             //Create 2d array with fields
             Field[,] f = new Field[levelWidth, levelHeight];
             for (int x = 0; x < levelWidth; x++)
@@ -64,34 +64,69 @@ namespace Sokoban
                     {
                         case '#':
                             f[x, y] = new Wall();
+                            fs.Add(f[x, y]);
+                            
                             break;
                         case '.':
                             f[x, y] = new Field();
+                            fs.Add(f[x, y]);
                             break;
                         case 'o':
                             f[x, y] = new Field { Crate = new Crate() };
+                            fs.Add(f[x, y]);
                             break;
                         case 'x':
                             f[x, y] = new DestinationField();
+                            fs.Add(f[x, y]);
                             break;
                         case '@':
+                            Console.WriteLine("er is een player");
                             f[x, y] = new Field { Player = new Player() };
+                            fs.Add(f[x, y]);
+                            break;
+                        case ' ':
+                            f[x, y] = new EmptyField();
+                            fs.Add(f[x, y]);
                             break;
                     }
                 }
             }
             //link the fields with each other
+            
             for (int x = 0; x < levelWidth; x++)
             {
                 for (int y = levelHeight - 1; y > 0; y--)
                 {
-                    if(y != levelHeight)
+                    if (x == 0 && first)
                     {
-
+                        firstField2 = f[x, y];
+                        first = false;
+                        if(firstField2.UpperField != null)
+                        {
+                            Console.WriteLine("niet de juiste field");
+                        }
+                    }
+                    if(y != levelHeight -1)
+                    {
+                        f[x, y].UpperField = f[x, y + 1];
+                    }
+                    if(y != 0)
+                    {
+                        f[x, y].LowerField = f[x, y - 1];
+                    }
+                    if(x != 0)
+                    {
+                        f[x, y].LeftField = f[x - 1, y];
+                    }
+                    if(x != levelWidth - 1)
+                    {
+                        f[x, y].RightField = f[x + 1, y];
                     }
 
                 }
             }
+         
+          
         }
 
         private char[,] CreateCharField(String[] maze)
@@ -115,47 +150,6 @@ namespace Sokoban
             }
          
 
-            //Array van strings
-            // en dan splitsen per rij van de 2d array
-            // for(int i = 0; i < maze.Length; i++)
-            // {
-            //     Console.WriteLine(i+": " + maze.ElementAt(i));
-            // }
-
-            //char[,] tempArray = new char[levelWidth + 1 ,levelHeight +1];
-            //for(int y = 0; y< levelHeight + 1; y++)
-            //{
-            //    for (int x = 0; x < levelWidth ; x++)
-            //    {
-            //        tempArray[x, y] = maze.ElementAt((y * levelWidth) + x);
-            //    }
-            //}
-
-            //for (int y = 0; y < this.levelHeight; y++)
-            //{
-            //    for (int x = 0; x < levelWidth; x++)
-            //    {
-            //        if(x == levelWidth - 1)
-            //        {
-            //            Console.WriteLine("");
-            //        }
-            //        Console.Write(tempArray[x, y].ToString());
-            //    }
-            //}
-
-            int rowLength = tempArray.GetLength(0);
-            int colLength = tempArray.GetLength(1);
-
-            for (int i = 0; i < rowLength; i++)
-            {
-                for (int j = 0; j < colLength; j++)
-                {
-                    Console.Write(string.Format("{0} ", tempArray[i, j]));
-                }
-                Console.Write(Environment.NewLine + Environment.NewLine);
-            }
-
-            Console.WriteLine();
             return tempArray;
         }
 

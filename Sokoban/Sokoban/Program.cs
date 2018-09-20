@@ -11,7 +11,7 @@ namespace Sokoban
         static void Main(string[] args)
         {
             Parser p = new Parser();
-            p.createMaze(Convert.ToInt32(Console.ReadLine()));
+            p.CreateMaze(Convert.ToInt32(Console.ReadLine()));
             Console.ReadKey();
         }
     }
