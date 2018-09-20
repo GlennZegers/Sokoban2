@@ -46,6 +46,7 @@
     <Compile Include="Control.cs" />
     <Compile Include="Crate.cs" />
     <Compile Include="DestinationField.cs" />
+    <Compile Include="EmptyField.cs" />
     <Compile Include="Field.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Maze.cs" />

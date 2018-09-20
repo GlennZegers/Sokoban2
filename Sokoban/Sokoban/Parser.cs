@@ -38,14 +38,63 @@ namespace Sokoban
                     break;
 
             }
+            Console.WriteLine(maze[0]);
+            Console.WriteLine(maze[1]);
+            Console.WriteLine(maze[2]);
+            Console.WriteLine(maze[3]);
+            Console.WriteLine(maze[4]);
+            Console.WriteLine(maze[5]);
 
-            
-            Console.WriteLine(maze);
-            createCharField(maze);
+
+            char[,] charArray = CreateCharField(maze);
+            CreateFields(charArray);
 
         }
 
-        private void createCharField(String[] maze)
+        private void CreateFields(char[,] charArray)
+        {
+            //Create 2d array with fields
+            Field[,] f = new Field[levelWidth, levelHeight];
+            for (int x = 0; x < levelWidth; x++)
+            {
+                for (int y = levelHeight - 1; y>0; y--)
+                {
+                    char c = charArray[x, y];
+                    switch (c)
+                    {
+                        case '#':
+                            f[x, y] = new Wall();
+                            break;
+                        case '.':
+                            f[x, y] = new Field();
+                            break;
+                        case 'o':
+                            f[x, y] = new Field { Crate = new Crate() };
+                            break;
+                        case 'x':
+                            f[x, y] = new DestinationField();
+                            break;
+                        case '@':
+                            f[x, y] = new Field { Player = new Player() };
+                            break;
+                    }
+                }
+            }
+            //link the fields with each other
+            for (int x = 0; x < levelWidth; x++)
+            {
+                for (int y = levelHeight - 1; y > 0; y--)
+                {
+                    if(y != levelHeight)
+                    {
+
+                    }
+
+                }
+            }
+        }
+
+        private char[,] CreateCharField(String[] maze)
         {
             this.levelHeight = maze.Length;
             this.levelWidth = maze[0].Length;
@@ -64,6 +113,8 @@ namespace Sokoban
                     tempArray[y, x] = maze[x].ElementAt(y);
                 }
             }
+         
+
             //Array van strings
             // en dan splitsen per rij van de 2d array
             // for(int i = 0; i < maze.Length; i++)
@@ -80,16 +131,32 @@ namespace Sokoban
             //    }
             //}
 
-            for (int y = 0; y < this.levelHeight; y++)
+            //for (int y = 0; y < this.levelHeight; y++)
+            //{
+            //    for (int x = 0; x < levelWidth; x++)
+            //    {
+            //        if(x == levelWidth - 1)
+            //        {
+            //            Console.WriteLine("");
+            //        }
+            //        Console.Write(tempArray[x, y].ToString());
+            //    }
+            //}
+
+            int rowLength = tempArray.GetLength(0);
+            int colLength = tempArray.GetLength(1);
+
+            for (int i = 0; i < rowLength; i++)
             {
-                for (int x = 0; x < levelWidth; x++)
+                for (int j = 0; j < colLength; j++)
                 {
-                    Console.Write(tempArray[x, y]);
+                    Console.Write(string.Format("{0} ", tempArray[i, j]));
                 }
+                Console.Write(Environment.NewLine + Environment.NewLine);
             }
 
-            //Console.WriteLine();
-
+            Console.WriteLine();
+            return tempArray;
         }
 
 
