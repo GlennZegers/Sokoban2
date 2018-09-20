@@ -18,5 +18,7 @@ namespace Sokoban
             get;
             set;
         }
+
+        public bool HasCrate { get; set;  }
     }
 }

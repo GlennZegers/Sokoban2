@@ -11,7 +11,28 @@ namespace Sokoban
 
         public void MoveRight()
         {
-            //CurrentField = CurrentField.
+            bool CanMove = false;
+            if (!(CurrentField.RightField is Wall))
+            {
+                if (CurrentField.RightField.HasCrate)
+                {
+                    if (!(CurrentField.RightField.RightField is Wall))
+                    {
+                        CanMove = true;
+                    }
+                }
+                else 
+                {
+                    CanMove = true;
+                }
+            }
+
+            if (CanMove)
+            {
+                //CurrentField.MoveRight();    (hierin worden dan de tekens aangepast)
+                CurrentField = CurrentField.RightField;
+            }
+           
         }
 
         public void MoveLeft()
