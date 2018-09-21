@@ -37,6 +37,5 @@ namespace Sokoban
             Console.WriteLine("─────────────────────────────────────────────────────────────────────────");
             Console.WriteLine("> gebruik pijljestoetsen(s = stop, r = reset)");
         }
-
     }
 }
