@@ -38,20 +38,5 @@ namespace Sokoban
             Console.WriteLine("> gebruik pijljestoetsen(s = stop, r = reset)");
         }
 
-        public void PlayerHasWonScreen()
-        {
-            Console.Clear();
-            Console.WriteLine("┌──────────┐");
-            Console.WriteLine("| Sokoban  |");
-            Console.WriteLine("└──────────┘");
-            Console.WriteLine("─────────────────────────────────────────────────────────────────────────");
-
-            //doolhof geprint
-
-            Console.WriteLine(" ");
-            Console.WriteLine("=== HOERA OPGELOST ===");
-            Console.WriteLine("> press key to continue");
-            Console.ReadKey();
-        }
     }
 }
