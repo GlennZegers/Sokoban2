@@ -53,13 +53,13 @@ namespace Sokoban
 
         public void Play()
         {
-            _outputView.StandardScreen();
+          //  _outputView.StandardScreen();
             //hier is dus al een doolhof gekozen
             while (!HasWon)
             {
                 _inputView.MakeAMove();
                 CheckIfWon();
-                _outputView.StandardScreen();
+             //   _outputView.StandardScreen();
             }
 
             _outputView.PlayerHasWonScreen();
