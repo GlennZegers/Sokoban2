@@ -26,10 +26,10 @@ namespace Sokoban
                     CanMove = true;
                 }
             }
-
+            
             if (CanMove)
             {
-                //CurrentField.MoveRight();    (hierin worden dan de tekens aangepast)
+                CurrentField.RightField.Move(1);    //(hierin worden dan de tekens aangepast)
                 CurrentField = CurrentField.RightField;
             }
            
@@ -37,27 +37,77 @@ namespace Sokoban
 
         public void MoveLeft()
         {
+            bool CanMove = false;
+            if (!(CurrentField.LeftField is Wall))
+            {
+                if (CurrentField.LeftField.HasCrate)
+                {
+                    if (!(CurrentField.LeftField.LeftField is Wall))
+                    {
+                        CanMove = true;
+                    }
+                }
+                else
+                {
+                    CanMove = true;
+                }
+            }
 
+            if (CanMove)
+            {
+                CurrentField.LeftField.Move(2);    //(hierin worden dan de tekens aangepast)
+                CurrentField = CurrentField.LeftField;
+            }
         }
 
         public void MoveUp()
         {
+            bool CanMove = false;
+            if (!(CurrentField.UpperField is Wall))
+            {
+                if (CurrentField.UpperField.HasCrate)
+                {
+                    if (!(CurrentField.UpperField.UpperField is Wall))
+                    {
+                        CanMove = true;
+                    }
+                }
+                else
+                {
+                    CanMove = true;
+                }
+            }
 
+            if (CanMove)
+            {
+                CurrentField.UpperField.Move(3);    //(hierin worden dan de tekens aangepast)
+                CurrentField = CurrentField.UpperField;
+            }
         }
 
         public void MoveDown()
         {
+            bool CanMove = false;
+            if (!(CurrentField.LowerField is Wall))
+            {
+                if (CurrentField.LowerField.HasCrate)
+                {
+                    if (!(CurrentField.LowerField.LowerField is Wall))
+                    {
+                        CanMove = true;
+                    }
+                }
+                else
+                {
+                    CanMove = true;
+                }
+            }
 
-        }
-
-        //kan dat deze ook in 4 verdeeld moet worden, of dat ieder deel in het begin van de methode moet
-        public bool CanMove()
-        {
-            //checks of je de krat kan bewegen de kant die je op wilt
-            return true;
-
-            //zo niet
-            return false;
+            if (CanMove)
+            {
+                CurrentField.LowerField.Move(4);    //(hierin worden dan de tekens aangepast)
+                CurrentField = CurrentField.LowerField;
+            }
         }
     }
 }
