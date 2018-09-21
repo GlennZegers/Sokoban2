@@ -24,7 +24,7 @@ namespace Sokoban
             Console.WriteLine("└────────────────────────────────────────────────────┘");
         }
 
-        public void StandardScreen()
+        public void StandardScreen(Field startingField,int mazeWidth, int mazeLength)
         {
             Console.Clear();
             Console.WriteLine("┌──────────┐");
@@ -33,9 +33,83 @@ namespace Sokoban
             Console.WriteLine("─────────────────────────────────────────────────────────────────────────");
 
             //hier komt dan het doolhof te staan
+            PrintMaze(startingField, mazeWidth, mazeLength);
 
             Console.WriteLine("─────────────────────────────────────────────────────────────────────────");
             Console.WriteLine("> gebruik pijljestoetsen(s = stop, r = reset)");
+        }
+
+        private void PrintMaze(Field startingField,int mazeWidth, int mazeLength)
+        {
+            String printString = "";
+            Field tempField = startingField.LowerField;
+            Field[] FirstFields = new Field[mazeLength];
+            FirstFields[0]= startingField;
+            FirstFields[1] =tempField;
+            int i = 2;
+            while(true)
+            {
+                if(tempField.LowerField != null)
+                {
+                    FirstFields[i]=tempField.LowerField;
+                    tempField = tempField.LowerField;
+                }
+                else
+                {
+                    break;
+                }
+                i++;
+            }
+            for (int y = FirstFields.Length -1; y > 0; y--)
+            {
+                tempField = FirstFields[y];
+                for (int x = 0; x < mazeWidth; x++)
+                {if(tempField.Player != null)
+                    {
+                        printString += "@";
+                    }
+                   else if (tempField is Wall)
+                    {
+                        printString += "#";
+                    }
+                    else if (tempField is DestinationField)
+                    {
+                        if (tempField.Crate != null)
+                        {
+                            printString += "0";
+                        }
+                        else
+                        {
+                            printString += "x";
+                        }
+                    }else if(tempField is EmptyField)
+                    {
+                        printString += " ";
+                    }
+                    else if(tempField is Field)
+                    { if(tempField.Crate != null)
+                        {
+                            printString += "o";
+                        }
+                        else
+                        {
+                            printString += ".";
+                        }
+                        
+                    }
+
+                    if (tempField.RightField != null)
+                    { 
+                        tempField = tempField.RightField;
+                    }
+                }
+                Console.WriteLine(printString);
+                printString = "";
+                
+
+
+            }
+
         }
     }
 }
