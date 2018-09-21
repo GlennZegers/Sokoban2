@@ -7,5 +7,9 @@ namespace Sokoban
 {
     public class Wall : Field
     {
+        public void Move()
+        {
+            return;
+        }
     }
 }

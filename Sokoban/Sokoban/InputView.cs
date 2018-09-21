@@ -37,37 +37,39 @@ namespace Sokoban
 
         public void MakeAMove()
         {
-            bool isValid = false;
+            bool IsValid = false;
 
-            while (!isValid)
+            while (!IsValid)
             {
-                var input = Console.ReadKey(false).Key;
+                var Input = Console.ReadKey(false).Key;
 
-                switch (input)
+                switch (Input)
                 {
                     case ConsoleKey.S:
                         //return to main menu
-                        isValid = true;
+                        //outputview.startmessage
+                        //choose maze
+                        IsValid = true;
                         break;
                     case ConsoleKey.R:
                         //reset game
-                        //geen isvalid want de vraag van 'gebruik pijltjestoetsen' moet opnieuw komen
+                        IsValid = true;
                         break;
                     case ConsoleKey.RightArrow:
                         //move to right
-                        isValid = true;
+                        IsValid = true;
                         break;
                     case ConsoleKey.LeftArrow:
                         //move to left
-                        isValid = true;
+                        IsValid = true;
                         break;
                     case ConsoleKey.UpArrow:
                         //move up
-                        isValid = true;
+                        IsValid = true;
                         break;
                     case ConsoleKey.DownArrow:
                         //move down
-                        isValid = true;
+                        IsValid = true;
                         break;
                     default:
                         //do nothing
