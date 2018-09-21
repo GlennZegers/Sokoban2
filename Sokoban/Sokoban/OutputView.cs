@@ -45,8 +45,9 @@ namespace Sokoban
             Field tempField = startingField.LowerField;
             Field[] FirstFields = new Field[mazeLength];
             FirstFields[0]= startingField;
-            FirstFields[1] =tempField;
-            int i = 2;
+            tempField = startingField;
+           // FirstFields[1] =tempField;
+            int i = 1;
             while(true)
             {
                 if(tempField.LowerField != null)

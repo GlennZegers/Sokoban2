@@ -80,7 +80,7 @@ namespace Sokoban
                             fs.Add(f[x, y]);
                             break;
                         case '@':
-                            Console.WriteLine("er is een player");
+                            
                             f[x, y] = new Field { Player = new Player() };
                             fs.Add(f[x, y]);
                             break;
@@ -101,10 +101,7 @@ namespace Sokoban
                     {
                         firstField2 = f[x, y];
                         first = false;
-                        if(firstField2.UpperField != null)
-                        {
-                            Console.WriteLine("niet de juiste field");
-                        }
+                        
                     }
                     if(y != levelHeight -1)
                     {
@@ -148,7 +145,14 @@ namespace Sokoban
                     tempArray[y, x] = maze[x].ElementAt(y);
                 }
             }
-         
+            for (int i = 0; i < tempArray.GetLength(0); i++)
+            {
+                for (int j = 0; j < tempArray.GetLength(1); j++)
+                {
+                    Console.Write(tempArray[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
 
             return tempArray;
         }
