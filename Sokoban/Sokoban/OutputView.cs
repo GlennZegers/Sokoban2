@@ -61,9 +61,9 @@ namespace Sokoban
                 }
                 i++;
             }
-            for (int y = FirstFields.Length -1; y > 0; y--)
+            for (int y = FirstFields.Length -1; y > -1; y--)
             {
-                tempField = FirstFields[y];
+                tempField = FirstFields[y ];
                 for (int x = 0; x < mazeWidth; x++)
                 {if(tempField.Player != null)
                     {

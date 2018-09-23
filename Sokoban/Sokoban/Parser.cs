@@ -55,9 +55,10 @@ namespace Sokoban
             List<Field> fs = new List<Field>();
             //Create 2d array with fields
             Field[,] f = new Field[levelWidth, levelHeight];
+            
             for (int x = 0; x < levelWidth; x++)
             {
-                for (int y = levelHeight - 1; y>0; y--)
+                for (int y = levelHeight - 1; y>- 1; y--)
                 {
                     char c = charArray[x, y];
                     switch (c)
@@ -145,14 +146,14 @@ namespace Sokoban
                     tempArray[y, x] = maze[x].ElementAt(y);
                 }
             }
-            for (int i = 0; i < tempArray.GetLength(0); i++)
-            {
-                for (int j = 0; j < tempArray.GetLength(1); j++)
-                {
-                    Console.Write(tempArray[i, j] + "\t");
-                }
-                Console.WriteLine();
-            }
+            //for (int i = 0; i < tempArray.GetLength(0); i++)
+            //{
+            //    for (int j = 0; j < tempArray.GetLength(1); j++)
+            //    {
+            //        Console.Write(tempArray[i, j] + "\t");
+            //    }
+            //    Console.WriteLine();
+            //}
 
             return tempArray;
         }
