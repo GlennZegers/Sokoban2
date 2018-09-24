@@ -63,31 +63,6 @@ namespace Sokoban
         public void MoveUp()
         {
             bool CanMove = false;
-            if (!(CurrentField.UpperField is Wall))
-            {
-                if (CurrentField.UpperField.HasCrate)
-                {
-                    if (!(CurrentField.UpperField.UpperField is Wall))
-                    {
-                        CanMove = true;
-                    }
-                }
-                else
-                {
-                    CanMove = true;
-                }
-            }
-
-            if (CanMove)
-            {
-                CurrentField.UpperField.Move(3);    //(hierin worden dan de tekens aangepast)
-                CurrentField = CurrentField.UpperField;
-            }
-        }
-
-        public void MoveDown()
-        {
-            bool CanMove = false;
             if (!(CurrentField.LowerField is Wall))
             {
                 if (CurrentField.LowerField.HasCrate)
@@ -105,8 +80,33 @@ namespace Sokoban
 
             if (CanMove)
             {
-                CurrentField.LowerField.Move(4);    //(hierin worden dan de tekens aangepast)
+                CurrentField.LowerField.Move(3);    //(hierin worden dan de tekens aangepast)
                 CurrentField = CurrentField.LowerField;
+            }
+        }
+
+        public void MoveDown()
+        {
+            bool CanMove = false;
+            if (!(CurrentField.UpperField is Wall))
+            {
+                if (CurrentField.UpperField.HasCrate)
+                {
+                    if (!(CurrentField.UpperField.UpperField is Wall))
+                    {
+                        CanMove = true;
+                    }
+                }
+                else
+                {
+                    CanMove = true;
+                }
+            }
+
+            if (CanMove)
+            {
+                CurrentField.UpperField.Move(4);    //(hierin worden dan de tekens aangepast)
+                CurrentField = CurrentField.UpperField;
             }
         }
     }

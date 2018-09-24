@@ -59,7 +59,7 @@ namespace Sokoban
                     break;
 
                 case 3:
-                    Player = LowerField.Player;
+                    Player = UpperField.Player;
                     if (HasCrate)
                     {
                         LowerField.HasCrate = true;
@@ -67,11 +67,11 @@ namespace Sokoban
                         HasCrate = false;
                         Crate = null;
                     }
-                    LowerField.Player = null;
+                    UpperField.Player = null;
                     break;
 
                 case 4:
-                    Player = UpperField.Player;
+                    Player = LowerField.Player;
                     if (HasCrate)
                     {
                         UpperField.HasCrate = true;
@@ -79,7 +79,7 @@ namespace Sokoban
                         HasCrate = false;
                         Crate = null;
                     }
-                    UpperField.Player = null;
+                    LowerField.Player = null;
                     break;
             }
         }
