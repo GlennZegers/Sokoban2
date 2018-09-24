@@ -52,9 +52,7 @@ namespace Sokoban
                 switch (Input)
                 {
                     case ConsoleKey.S:
-                        //return to main menu
-                        //outputview.startmessage
-                        //choose maze
+                        game.StartOver();
                         IsValid = true;
                         break;
                     case ConsoleKey.R:

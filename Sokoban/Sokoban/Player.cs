@@ -16,7 +16,7 @@ namespace Sokoban
             {
                 if (CurrentField.RightField.HasCrate)
                 {
-                    if (!(CurrentField.RightField.RightField is Wall))
+                    if (!(CurrentField.RightField.RightField is Wall) && !CurrentField.RightField.RightField.HasCrate)
                     {
                         CanMove = true;
                     }
@@ -42,7 +42,7 @@ namespace Sokoban
             {
                 if (CurrentField.LeftField.HasCrate)
                 {
-                    if (!(CurrentField.LeftField.LeftField is Wall))
+                    if (!(CurrentField.LeftField.LeftField is Wall) && !CurrentField.LeftField.LeftField.HasCrate)
                     {
                         CanMove = true;
                     }
@@ -67,7 +67,7 @@ namespace Sokoban
             {
                 if (CurrentField.LowerField.HasCrate)
                 {
-                    if (!(CurrentField.LowerField.LowerField is Wall))
+                    if (!(CurrentField.LowerField.LowerField is Wall) && !CurrentField.LowerField.LowerField.HasCrate)
                     {
                         CanMove = true;
                     }
@@ -92,7 +92,7 @@ namespace Sokoban
             {
                 if (CurrentField.UpperField.HasCrate)
                 {
-                    if (!(CurrentField.UpperField.UpperField is Wall))
+                    if (!(CurrentField.UpperField.UpperField is Wall) && !CurrentField.UpperField.UpperField.HasCrate )
                     {
                         CanMove = true;
                     }

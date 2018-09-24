@@ -62,6 +62,14 @@ namespace Sokoban
             _inputView.ChooseMaze();
         }
 
+        public void StartOver()
+        {
+            Console.Clear();
+            _outputView.StartMessage();
+            parser.CreateMaze(_inputView.ChooseMaze(), Player);
+            Play();
+        }
+
         public void ResetGame()
         {
             //naar beginpunt
