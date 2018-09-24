@@ -28,10 +28,6 @@ namespace Sokoban
 
         public void Move(int direction)
         {
-            //deze klasse krijgt dan een speler
-            //1 van zijn naaste klassen kan een krat krijgen, op basis van een parameter
-            //1 van zijn andere naaste klassen wordt dan leeg
-
             switch (direction)
             {
                 case 1:

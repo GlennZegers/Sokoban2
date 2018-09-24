@@ -10,22 +10,7 @@ namespace Sokoban
         private List<DestinationField> _allDesFields;
         public bool HasWon { get; set; }
         public Parser parser { get; set; }
-        public Maze Maze
-        {
-            get => default(Maze);
-            set
-            {
-            }
-        }
-
-        public Player Player
-        {
-            get;
-            set;
-            
-           
-        }
-
+        public Player Player { get; set; }
         private OutputView _outputView;
         private InputView _inputView;
 
@@ -39,7 +24,6 @@ namespace Sokoban
             _inputView = new InputView(this);
             _outputView.StartMessage();
             parser.CreateMaze(_inputView.ChooseMaze() , Player);
-           // Console.WriteLine("hoi");
             Play();
         }
 
@@ -61,13 +45,12 @@ namespace Sokoban
 
         public void Play()
         {
-            //  _outputView.StandardScreen();
-            //hier is dus al een doolhof gekozen
+          
             HasWon = false;
             while (!HasWon)
             {
                 _inputView.MakeAMove();
-                Console.WriteLine("HIER");
+               
                 CheckIfWon();
                 
                 _outputView.StandardScreen(parser.firstField2, parser.levelWidth, parser.levelHeight);

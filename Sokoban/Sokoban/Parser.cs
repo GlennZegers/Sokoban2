@@ -12,13 +12,13 @@ namespace Sokoban
         private char[,] charField;
         public List<DestinationField> destFields{ get; set;}
         public Field firstField2 { get; set; }
-        private Boolean first = true;//MOET OOOOOK WEG
+        private Boolean first = true;
         public char[,] CharField
         {
             get { return charField; }
             set { charField = value; }
         }
-        public void print()//moet weg
+        public void print()
         {
             OutputView p = new OutputView();
             p.StandardScreen(firstField2, levelWidth, levelHeight);
@@ -149,15 +149,6 @@ namespace Sokoban
                     tempArray[y, x] = maze[x].ElementAt(y);
                 }
             }
-            //for (int i = 0; i < tempArray.GetLength(0); i++)
-            //{
-            //    for (int j = 0; j < tempArray.GetLength(1); j++)
-            //    {
-            //        Console.Write(tempArray[i, j] + "\t");
-            //    }
-            //    Console.WriteLine();
-            //}
-
             return tempArray;
         }
 
