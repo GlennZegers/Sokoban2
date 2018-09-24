@@ -9,6 +9,7 @@ namespace Sokoban
     {
         private List<DestinationField> _allDesFields;
         public bool HasWon { get; set; }
+        public Parser parser { get; set; }
         public Maze Maze
         {
             get => default(Maze);
@@ -30,10 +31,13 @@ namespace Sokoban
 
         public Game()
         {
+            parser = new Parser();
             _allDesFields = new List<DestinationField>();
             HasWon = false;
             _outputView = new OutputView();
             _inputView = new InputView();
+
+            Play();
         }
 
         public bool CheckIfWon()

@@ -10,8 +10,8 @@ namespace Sokoban
         private int levelWidth;
         private int levelHeight;
         private char[,] charField;
-        public Field firstField2;//MOET WEG
-        public Boolean first = true;//MOET OOOOOK WEG
+        public Field firstField2 { get; set; }
+        private Boolean first = true;//MOET OOOOOK WEG
         public char[,] CharField
         {
             get { return charField; }
