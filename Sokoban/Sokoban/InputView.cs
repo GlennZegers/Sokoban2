@@ -8,6 +8,12 @@ namespace Sokoban
 {
     public class InputView
     {
+        public Game game { get; set; }
+
+        public InputView(Game game)
+        {
+            this.game = game;
+        }
 
         public int ChooseMaze()
         {
