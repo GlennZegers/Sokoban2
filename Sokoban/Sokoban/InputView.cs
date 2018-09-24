@@ -62,19 +62,19 @@ namespace Sokoban
                         IsValid = true;
                         break;
                     case ConsoleKey.RightArrow:
-                        //move to right
+                        game.Player.MoveRight();
                         IsValid = true;
                         break;
                     case ConsoleKey.LeftArrow:
-                        //move to left
+                        game.Player.MoveLeft();
                         IsValid = true;
                         break;
                     case ConsoleKey.UpArrow:
-                        //move up
+                        game.Player.MoveUp();
                         IsValid = true;
                         break;
                     case ConsoleKey.DownArrow:
-                        //move down
+                        game.Player.MoveDown();
                         IsValid = true;
                         break;
                     default:

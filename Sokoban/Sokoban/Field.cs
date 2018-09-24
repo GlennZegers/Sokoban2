@@ -39,7 +39,9 @@ namespace Sokoban
                     if (HasCrate)
                     {
                         RightField.HasCrate = true;
+                        RightField.Crate = Crate;
                         HasCrate = false;
+                        Crate = null;
                     }
                     LeftField.Player = null;
                     break;
@@ -49,7 +51,9 @@ namespace Sokoban
                     if (HasCrate)
                     {
                         LeftField.HasCrate = true;
+                        LeftField.Crate = Crate;
                         HasCrate = false;
+                        Crate = null;
                     }
                     RightField.Player = null;
                     break;
@@ -59,7 +63,9 @@ namespace Sokoban
                     if (HasCrate)
                     {
                         LowerField.HasCrate = true;
+                        LowerField.Crate = Crate;
                         HasCrate = false;
+                        Crate = null;
                     }
                     LowerField.Player = null;
                     break;
@@ -69,7 +75,9 @@ namespace Sokoban
                     if (HasCrate)
                     {
                         UpperField.HasCrate = true;
+                        UpperField.Crate = Crate;
                         HasCrate = false;
+                        Crate = null;
                     }
                     UpperField.Player = null;
                     break;

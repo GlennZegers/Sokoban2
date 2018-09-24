@@ -20,10 +20,10 @@ namespace Sokoban
 
         public Player Player
         {
-            get => default(Player);
-            set
-            {
-            }
+            get;
+            set;
+            
+           
         }
 
         private OutputView _outputView;
@@ -31,12 +31,14 @@ namespace Sokoban
 
         public Game()
         {
+            Player = new Player();
             parser = new Parser();
             _allDesFields = new List<DestinationField>();
             HasWon = false;
             _outputView = new OutputView();
-            _inputView = new InputView();
-
+            _inputView = new InputView(this);
+            _outputView.StartMessage();
+            parser.CreateMaze(_inputView.ChooseMaze() , Player);
             Play();
         }
 
@@ -62,8 +64,8 @@ namespace Sokoban
             while (!HasWon)
             {
                 _inputView.MakeAMove();
-                CheckIfWon();
-             //   _outputView.StandardScreen();
+                //CheckIfWon();
+                _outputView.StandardScreen(parser.firstField2, parser.levelWidth, parser.levelHeight);
             }
 
             _outputView.PlayerHasWonScreen();

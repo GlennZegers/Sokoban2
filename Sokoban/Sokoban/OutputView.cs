@@ -75,7 +75,7 @@ namespace Sokoban
                     }
                     else if (tempField is DestinationField)
                     {
-                        if (tempField.Crate != null)
+                        if (tempField.Crate != null || tempField.HasCrate)
                         {
                             printString += "0";
                         }
@@ -88,7 +88,7 @@ namespace Sokoban
                         printString += " ";
                     }
                     else if(tempField is Field)
-                    { if(tempField.Crate != null)
+                    { if(tempField.Crate != null || tempField.HasCrate)
                         {
                             printString += "o";
                         }

@@ -7,8 +7,8 @@ namespace Sokoban
 { 
     public class Parser
     {
-        private int levelWidth;
-        private int levelHeight;
+        public int levelWidth { get; set; }
+        public int levelHeight { get; set; }
         private char[,] charField;
         public Field firstField2 { get; set; }
         private Boolean first = true;//MOET OOOOOK WEG
@@ -22,7 +22,7 @@ namespace Sokoban
             OutputView p = new OutputView();
             p.StandardScreen(firstField2, levelWidth, levelHeight);
         }
-        public void CreateMaze(int level)
+        public void CreateMaze(int level, Player player)
         {
             string[] maze = null;
             switch (level)
@@ -45,12 +45,12 @@ namespace Sokoban
 
             }
             char[,] charArray = CreateCharField(maze);
-            CreateFields(charArray);
+            CreateFields(charArray, player);
             print();
 
         }
 
-        private void CreateFields(char[,] charArray)
+        private void CreateFields(char[,] charArray , Player p)
         {
             List<Field> fs = new List<Field>();
             //Create 2d array with fields
@@ -73,7 +73,7 @@ namespace Sokoban
                             fs.Add(f[x, y]);
                             break;
                         case 'o':
-                            f[x, y] = new Field { Crate = new Crate() };
+                            f[x, y] = new Field { Crate = new Crate(), HasCrate = true };
                             fs.Add(f[x, y]);
                             break;
                         case 'x':
@@ -82,7 +82,8 @@ namespace Sokoban
                             break;
                         case '@':
                             
-                            f[x, y] = new Field { Player = new Player() };
+                            f[x, y] = new Field { Player = p };
+                            p.CurrentField = f[x, y];
                             fs.Add(f[x, y]);
                             break;
                         case ' ':
