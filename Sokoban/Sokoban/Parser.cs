@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 
 namespace Sokoban
-{ 
+{
     public class Parser
     {
         public int levelWidth { get; set; }
         public int levelHeight { get; set; }
         private char[,] charField;
+        public List<DestinationField> destFields{ get; set;}
         public Field firstField2 { get; set; }
         private Boolean first = true;//MOET OOOOOK WEG
         public char[,] CharField
@@ -55,7 +56,7 @@ namespace Sokoban
             List<Field> fs = new List<Field>();
             //Create 2d array with fields
             Field[,] f = new Field[levelWidth, levelHeight];
-            
+            destFields = new List<DestinationField>();
             for (int x = 0; x < levelWidth; x++)
             {
                 for (int y = levelHeight - 1; y>- 1; y--)
@@ -78,6 +79,7 @@ namespace Sokoban
                             break;
                         case 'x':
                             f[x, y] = new DestinationField();
+                            destFields.Add((DestinationField)f[x, y]);
                             fs.Add(f[x, y]);
                             break;
                         case '@':

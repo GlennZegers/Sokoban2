@@ -39,11 +39,13 @@ namespace Sokoban
             _inputView = new InputView(this);
             _outputView.StartMessage();
             parser.CreateMaze(_inputView.ChooseMaze() , Player);
+           // Console.WriteLine("hoi");
             Play();
         }
 
         public bool CheckIfWon()
         {
+            _allDesFields = parser.destFields;
             for (int i = 0; i < _allDesFields.Count; i++)
             {
                 if (_allDesFields[i].HasCrate == false)
@@ -59,12 +61,15 @@ namespace Sokoban
 
         public void Play()
         {
-          //  _outputView.StandardScreen();
+            //  _outputView.StandardScreen();
             //hier is dus al een doolhof gekozen
+            HasWon = false;
             while (!HasWon)
             {
                 _inputView.MakeAMove();
-                //CheckIfWon();
+                Console.WriteLine("HIER");
+                CheckIfWon();
+                
                 _outputView.StandardScreen(parser.firstField2, parser.levelWidth, parser.levelHeight);
             }
 
