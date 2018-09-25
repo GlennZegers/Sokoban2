@@ -8,6 +8,9 @@ namespace Sokoban
 {
     class EmptyField : Field
     {
-       
+       public void Move()
+        {
+            return;
+        }
     }
 }

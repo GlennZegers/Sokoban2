@@ -11,14 +11,14 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.DestinationField">
-    <Position X="6" Y="8" Width="1.5" />
+    <Position X="5" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\DestinationField.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Wall">
-    <Position X="8.25" Y="8" Width="1.5" />
+    <Position X="7.25" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Model\Wall.cs</FileName>
@@ -46,21 +46,21 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Player">
-    <Position X="7.25" Y="1.5" Width="1.5" />
+    <Position X="2.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAAAAAAAAAAAAAAEAAAAAAAAIQAAAAAAAAAA=</HashCode>
       <FileName>Model\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.InputView">
-    <Position X="3.25" Y="7.5" Width="1.5" />
+    <Position X="3.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAABAAAAAIAAAAAAAAAAA=</HashCode>
       <FileName>View\InputView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.OutputView">
-    <Position X="4.25" Y="0.75" Width="1.5" />
+    <Position X="6.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAIAAAAAAAAAAAAAAAAAgAAAAAAAiAAAAAAAAAAAAA=</HashCode>
       <FileName>View\OutputView.cs</FileName>
@@ -71,6 +71,13 @@
     <TypeIdentifier>
       <HashCode>AAQAAAAIEAAAABgAAAEAAAABAACAACAAAAAAAAAFAAA=</HashCode>
       <FileName>Controller\Parser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.EmptyField">
+    <Position X="9.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\EmptyField.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
