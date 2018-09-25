@@ -71,7 +71,7 @@ namespace Sokoban
                     }
                    else if (tempField is Wall)
                     {
-                        printString += "#";
+                        printString += "█";
                     }
                     else if (tempField is DestinationField)
                     {
