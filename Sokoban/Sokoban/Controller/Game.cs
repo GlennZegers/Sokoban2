@@ -14,6 +14,7 @@ namespace Sokoban
         private OutputView _outputView;
         private InputView _inputView;
         public Field FirstField { get; set; }
+        public int Level { get; set; } 
 
         public Game()
         {
@@ -24,7 +25,8 @@ namespace Sokoban
             _outputView = new OutputView();
             _inputView = new InputView(this);
             _outputView.StartMessage();
-            parser.CreateMaze(_inputView.ChooseMaze() , Player);
+            Level = _inputView.ChooseMaze();
+            parser.CreateMaze(Level , Player);
             FirstField = parser.firstField2;
             Play();
         }
@@ -68,13 +70,22 @@ namespace Sokoban
         {
             Console.Clear();
             _outputView.StartMessage();
-            parser.CreateMaze(_inputView.ChooseMaze(), Player);
+            Player = new Player();
+            parser = new Parser();
+            Level = _inputView.ChooseMaze();
+            parser.CreateMaze(Level, Player);
+            FirstField = parser.firstField2;
             Play();
         }
 
         public void ResetGame()
         {
-            //naar beginpunt
+            Console.Clear();
+            Player = new Player();
+            parser = new Parser();
+            parser.CreateMaze(Level, Player);
+            FirstField = parser.firstField2;
+            Play();
         }
     }
 }

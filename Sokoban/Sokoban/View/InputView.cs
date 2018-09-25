@@ -56,7 +56,7 @@ namespace Sokoban
                         IsValid = true;
                         break;
                     case ConsoleKey.R:
-                        //reset game
+                        game.ResetGame();
                         IsValid = true;
                         break;
                     case ConsoleKey.RightArrow:
