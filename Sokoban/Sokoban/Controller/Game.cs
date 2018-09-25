@@ -13,6 +13,7 @@ namespace Sokoban
         public Player Player { get; set; }
         private OutputView _outputView;
         private InputView _inputView;
+        public Field FirstField { get; set; }
 
         public Game()
         {
@@ -24,6 +25,7 @@ namespace Sokoban
             _inputView = new InputView(this);
             _outputView.StartMessage();
             parser.CreateMaze(_inputView.ChooseMaze() , Player);
+            FirstField = parser.firstField2;
             Play();
         }
 
@@ -53,7 +55,7 @@ namespace Sokoban
                
                 CheckIfWon();
                 
-                _outputView.StandardScreen(parser.firstField2, parser.levelWidth, parser.levelHeight);
+                _outputView.StandardScreen(FirstField, parser.levelWidth, parser.levelHeight);
             }
 
             _outputView.PlayerHasWonScreen();

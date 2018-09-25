@@ -1,95 +1,76 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Sokoban.Field" Collapsed="true">
-    <Position X="4.25" Y="3" Width="1.5" />
+  <Class Name="Sokoban.Field">
+    <Position X="7.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAAAAAAAAIAAABAAAAAAIAAAAAAAAAQAAAAAAQAAQAI=</HashCode>
-      <FileName>Field.cs</FileName>
+      <FileName>Model\Field.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Crate" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.DestinationField">
-    <Position X="3" Y="4.25" Width="1.5" />
+    <Position X="6" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>DestinationField.cs</FileName>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\DestinationField.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Wall">
-    <Position X="5.25" Y="4.25" Width="1.5" />
+    <Position X="8.25" Y="8" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Wall.cs</FileName>
+      <FileName>Model\Wall.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Crate">
-    <Position X="4.25" Y="0.75" Width="1.5" />
+    <Position X="10.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Crate.cs</FileName>
+      <FileName>Model\Crate.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="Sokoban.Maze">
-    <Position X="0.75" Y="4.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
-      <FileName>Maze.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Field" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Game">
-    <Position X="1.25" Y="8" Width="1.5" />
+    <Position X="4.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAACAAAAAAAAAEAAAAABAAAAAAAAABAgAACASAAIAA=</HashCode>
-      <FileName>Game.cs</FileName>
+      <HashCode>AAAACAAABAAAAAEAAAAEBAAAAAAAAABAgAACASAAIAA=</HashCode>
+      <FileName>Controller\Game.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
+      <Field Name="_inputView" />
+      <Field Name="_outputView" />
       <Property Name="Player" />
+      <Property Name="parser" />
+      <Property Name="FirstField" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Player">
-    <Position X="1.25" Y="10" Width="1.5" />
+    <Position X="7.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAAAAAAAAAAAAAAEAAAAAAAAIQAAAAAAAAAA=</HashCode>
-      <FileName>Player.cs</FileName>
+      <FileName>Model\Player.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="Sokoban.Control">
-    <Position X="4.25" Y="6" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAAAAAAAAQAAAAAgIAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Control.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Game" />
-      <Property Name="MenuView" />
-      <Property Name="MazeView" />
-      <Property Name="MazeParse" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.InputView">
-    <Position X="7.25" Y="6" Width="1.5" />
+    <Position X="3.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAABAAAAAIAAAAAAAAAAA=</HashCode>
-      <FileName>InputView.cs</FileName>
+      <FileName>View\InputView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.OutputView">
-    <Position X="1.25" Y="6" Width="1.5" />
+    <Position X="4.25" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAIAAAAAAAAAAAAAAAAAgAAAAAAAiAAAAAAAAAAAAA=</HashCode>
-      <FileName>OutputView.cs</FileName>
+      <FileName>View\OutputView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Parser">
-    <Position X="4.25" Y="8" Width="1.5" />
+    <Position X="1.25" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAIEAAAABgAAAEAAAABAACAACAAAAAAAAAFAAA=</HashCode>
-      <FileName>Parser.cs</FileName>
+      <FileName>Controller\Parser.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
