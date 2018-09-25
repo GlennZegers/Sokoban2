@@ -61,7 +61,7 @@ namespace Sokoban
             }
 
             _outputView.PlayerHasWonScreen();
-            ResetGame();
+            StartOver();
             _outputView.StartMessage();
             _inputView.ChooseMaze();
         }
