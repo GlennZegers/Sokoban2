@@ -7,5 +7,9 @@ namespace Sokoban
 {
     public class DestinationField : Field
     {
+        public void Move()
+        {
+            return;
+        }
     }
 }
