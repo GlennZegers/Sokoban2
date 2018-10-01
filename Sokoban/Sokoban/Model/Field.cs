@@ -21,6 +21,11 @@ namespace Sokoban
 
         public bool HasCrate { get; set;  }
 
+        public String Print()
+        {
+            return ".";
+        }
+
         //direction 1 = right
         //direction 2 = left
         //direction 3 = up
