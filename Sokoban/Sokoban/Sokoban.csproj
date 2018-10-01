@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="Model\Crate.cs" />
     <Compile Include="Model\DestinationField.cs" />
-    <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\EmptyField.cs" />
     <Compile Include="Model\Field.cs" />
     <Compile Include="Controller\Game.cs" />
