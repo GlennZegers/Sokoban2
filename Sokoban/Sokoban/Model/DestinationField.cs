@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sokoban.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,9 +8,26 @@ namespace Sokoban
 {
     public class DestinationField : Field
     {
-        public void Move()
+     
+        public override String Print()
         {
-            return;
+            if (Moveable != null)
+            {
+                return Moveable.PrintOnDesField();
+            }
+            return "x";
         }
+
+        public override void LowerCounter()
+        {
+            Game.WinCounter--;
+        }
+
+        public override  void RaiseCounter()
+        {
+            Game.WinCounter++;
+        }
+
+        
     }
 }

@@ -7,59 +7,44 @@ namespace Sokoban
 {
     public class Game
     {
-        private List<DestinationField> _allDesFields;
-        public bool HasWon { get; set; }
         public Parser parser { get; set; }
         public Player Player { get; set; }
         private OutputView _outputView;
         private InputView _inputView;
         public Field FirstField { get; set; }
         public int Level { get; set; } 
+        public int WinCounter { get; set; }
+        public int DesFieldCounter { get; set; }
 
         public Game()
         {
+            DesFieldCounter = 0;
+            WinCounter = 0;
             Player = new Player();
             parser = new Parser();
-            _allDesFields = new List<DestinationField>();
-            HasWon = false;
             _outputView = new OutputView();
             _inputView = new InputView(this);
             _outputView.StartMessage();
             Level = _inputView.ChooseMaze();
-            parser.CreateMaze(Level , Player);
+            parser.CreateMaze(Level , Player, this);
             FirstField = parser.firstField2;
             Play();
         }
 
         public bool CheckIfWon()
         {
-            _allDesFields = parser.destFields;
-            for (int i = 0; i < _allDesFields.Count; i++)
-            {
-                if (_allDesFields[i].HasCrate == false)
-                {
-                    return false;
-                }
-            }
-
-            HasWon = true;
-            return true;
+            return DesFieldCounter == WinCounter;
 
         }
 
         public void Play()
         {
-          
-            HasWon = false;
-            while (!HasWon)
+            while (!CheckIfWon())
             {
                 _inputView.MakeAMove();
-               
-                CheckIfWon();
-                
                 _outputView.StandardScreen(FirstField, parser.levelWidth, parser.levelHeight);
+                Console.WriteLine(DesFieldCounter + "   " + WinCounter);
             }
-
             _outputView.PlayerHasWonScreen();
             StartOver();
             _outputView.StartMessage();
@@ -69,11 +54,13 @@ namespace Sokoban
         public void StartOver()
         {
             Console.Clear();
+            DesFieldCounter = 0;
+            WinCounter = 0;
             _outputView.StartMessage();
             Player = new Player();
             parser = new Parser();
             Level = _inputView.ChooseMaze();
-            parser.CreateMaze(Level, Player);
+            parser.CreateMaze(Level, Player, this);
             FirstField = parser.firstField2;
             Play();
         }
@@ -81,9 +68,11 @@ namespace Sokoban
         public void ResetGame()
         {
             Console.Clear();
+            DesFieldCounter = 0;
+            WinCounter = 0;
             Player = new Player();
             parser = new Parser();
-            parser.CreateMaze(Level, Player);
+            parser.CreateMaze(Level, Player, this);
             FirstField = parser.firstField2;
             Play();
         }

@@ -8,107 +8,39 @@ namespace Sokoban
 {
     public class Player : Moveable
     {
-        public Field CurrentField { get; set; }
+        public override Field CurrentField { get; set; }
 
-        public void MoveRight()
+        public override Boolean MoveRight()
         {
-            bool CanMove = false;
-            if (!(CurrentField.RightField is Wall))
-            {
-                if (CurrentField.RightField.HasCrate)
-                {
-                    if (!(CurrentField.RightField.RightField is Wall) && !CurrentField.RightField.RightField.HasCrate)
-                    {
-                        CanMove = true;
-                    }
-                }
-                else 
-                {
-                    CanMove = true;
-                }
-            }
-            
-            if (CanMove)
-            {
-                CurrentField.RightField.Move(1);    //(hierin worden dan de tekens aangepast)
-                CurrentField = CurrentField.RightField;
-            }
-           
+            CurrentField.RightField.Move(1, this);
+            return false;
         }
 
-        public void MoveLeft()
+        public override Boolean MoveLeft()
         {
-            bool CanMove = false;
-            if (!(CurrentField.LeftField is Wall))
-            {
-                if (CurrentField.LeftField.HasCrate)
-                {
-                    if (!(CurrentField.LeftField.LeftField is Wall) && !CurrentField.LeftField.LeftField.HasCrate)
-                    {
-                        CanMove = true;
-                    }
-                }
-                else
-                {
-                    CanMove = true;
-                }
-            }
-
-            if (CanMove)
-            {
-                CurrentField.LeftField.Move(2);    //(hierin worden dan de tekens aangepast)
-                CurrentField = CurrentField.LeftField;
-            }
+            CurrentField.LeftField.Move(2, this);
+            return false;
         }
 
-        public void MoveUp()
+        public override Boolean MoveUp()
         {
-            bool CanMove = false;
-            if (!(CurrentField.LowerField is Wall))
-            {
-                if (CurrentField.LowerField.HasCrate)
-                {
-                    if (!(CurrentField.LowerField.LowerField is Wall) && !CurrentField.LowerField.LowerField.HasCrate)
-                    {
-                        CanMove = true;
-                    }
-                }
-                else
-                {
-                    CanMove = true;
-                }
-            }
-
-            if (CanMove)
-            {
-                CurrentField.LowerField.Move(3);    //(hierin worden dan de tekens aangepast)
-                CurrentField = CurrentField.LowerField;
-            }
+            CurrentField.LowerField.Move(3, this);
+            return false;
         }
 
-        public void MoveDown()
+        public override Boolean MoveDown()
         {
-            bool CanMove = false;
-            if (!(CurrentField.UpperField is Wall))
-            {
-                if (CurrentField.UpperField.HasCrate)
-                {
-                    if (!(CurrentField.UpperField.UpperField is Wall) && !CurrentField.UpperField.UpperField.HasCrate )
-                    {
-                        CanMove = true;
-                    }
-                }
-                else
-                {
-                    CanMove = true;
-                }
-            }
+            CurrentField.UpperField.Move(4, this);
+            return false;
+        }
 
-            if (CanMove)
-            {
-                CurrentField.UpperField.Move(4);    //(hierin worden dan de tekens aangepast)
-                CurrentField = CurrentField.UpperField;
-            }
+        public override string Print()
+        {
+            return "@";
+        }
+        public override string PrintOnDesField()
+        {
+            return "@";
         }
     }
 }

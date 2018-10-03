@@ -46,7 +46,6 @@ namespace Sokoban
             Field[] FirstFields = new Field[mazeLength];
             FirstFields[0]= startingField;
             tempField = startingField;
-           // FirstFields[1] =tempField;
             int i = 1;
             while(true)
             {
@@ -65,40 +64,8 @@ namespace Sokoban
             {
                 tempField = FirstFields[y ];
                 for (int x = 0; x < mazeWidth; x++)
-                {if(tempField.Player != null)
-                    {
-                        printString += "@";
-                    }
-                   else if (tempField is Wall)
-                    {
-                        printString += "█";
-                    }
-                    else if (tempField is DestinationField)
-                    {
-                        if (tempField.Crate != null || tempField.HasCrate)
-                        {
-                            printString += "0";
-                        }
-                        else
-                        {
-                            printString += "x";
-                        }
-                    }else if(tempField is EmptyField)
-                    {
-                        printString += " ";
-                    }
-                    else if(tempField is Field)
-                    { if(tempField.Crate != null || tempField.HasCrate)
-                        {
-                            printString += "o";
-                        }
-                        else
-                        {
-                            printString += ".";
-                        }
-                        
-                    }
-
+                {
+                    printString += tempField.Print();                 
                     if (tempField.RightField != null)
                     { 
                         tempField = tempField.RightField;
@@ -106,9 +73,6 @@ namespace Sokoban
                 }
                 Console.WriteLine(printString);
                 printString = "";
-                
-
-
             }
 
         }

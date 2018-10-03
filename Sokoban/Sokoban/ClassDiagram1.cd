@@ -3,31 +3,28 @@
   <Class Name="Sokoban.Field">
     <Position X="7.25" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>BAAAAAAAAIAAABAAAAAAIAAAAAAAAAQAAAAAAQAAQAI=</HashCode>
+      <HashCode>BAAAAAAAAIAAAAAAAAAAIAAAAAAAAAQAAAAAAIAEQAI=</HashCode>
       <FileName>Model\Field.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Crate" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.DestinationField">
     <Position X="5" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>Model\DestinationField.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Wall">
     <Position X="7.25" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>Model\Wall.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Crate">
     <Position X="10.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAEAAAAAAAAIQAAAAAAEAAA=</HashCode>
       <FileName>Model\Crate.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -38,10 +35,10 @@
       <FileName>Controller\Game.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="_inputView" />
       <Field Name="_outputView" />
-      <Property Name="Player" />
+      <Field Name="_inputView" />
       <Property Name="parser" />
+      <Property Name="Player" />
       <Property Name="FirstField" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
@@ -51,7 +48,7 @@
   <Class Name="Sokoban.Player">
     <Position X="2.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAEAAAAAAAAAAAAAAAAAAAEAAAAAAAAIQAAAAAAAAAA=</HashCode>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAAEAAAAAAAAIQAAAAAAEAAA=</HashCode>
       <FileName>Model\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -79,7 +76,7 @@
   <Class Name="Sokoban.EmptyField">
     <Position X="9.5" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>Model\EmptyField.cs</FileName>
     </TypeIdentifier>
   </Class>

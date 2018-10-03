@@ -10,7 +10,6 @@ namespace Sokoban
         public int levelWidth { get; set; }
         public int levelHeight { get; set; }
         private char[,] charField;
-        public List<DestinationField> destFields{ get; set;}
         public Field firstField2 { get; set; }
         private Boolean first = true;
         public char[,] CharField
@@ -23,7 +22,7 @@ namespace Sokoban
             OutputView p = new OutputView();
             p.StandardScreen(firstField2, levelWidth, levelHeight);
         }
-        public void CreateMaze(int level, Player player)
+        public void CreateMaze(int level, Player player, Game game)
         {
             string[] maze = null;
             switch (level)
@@ -46,17 +45,16 @@ namespace Sokoban
 
             }
             char[,] charArray = CreateCharField(maze);
-            CreateFields(charArray, player);
+            CreateFields(charArray, player, game);
             print();
 
         }
 
-        private void CreateFields(char[,] charArray , Player p)
+        private void CreateFields(char[,] charArray , Player p, Game game)
         {
             List<Field> fs = new List<Field>();
             //Create 2d array with fields
             Field[,] f = new Field[levelWidth, levelHeight];
-            destFields = new List<DestinationField>();
             for (int x = 0; x < levelWidth; x++)
             {
                 for (int y = levelHeight - 1; y>- 1; y--)
@@ -70,21 +68,22 @@ namespace Sokoban
                             
                             break;
                         case '.':
-                            f[x, y] = new Field();
+                            f[x, y] = new Field { Game = game };
                             fs.Add(f[x, y]);
                             break;
                         case 'o':
-                            f[x, y] = new Field { Crate = new Crate(), HasCrate = true };
+                            f[x, y] = new Field { HasCrate = true, Game = game };
+                            f[x, y].Moveable = new Crate { CurrentField = f[x, y] };
                             fs.Add(f[x, y]);
                             break;
                         case 'x':
-                            f[x, y] = new DestinationField();
-                            destFields.Add((DestinationField)f[x, y]);
+                            f[x, y] = new DestinationField { Game = game };
+                            game.DesFieldCounter++;
                             fs.Add(f[x, y]);
                             break;
                         case '@':
                             
-                            f[x, y] = new Field { Player = p };
+                            f[x, y] = new Field { Moveable = new Player() };
                             p.CurrentField = f[x, y];
                             fs.Add(f[x, y]);
                             break;
