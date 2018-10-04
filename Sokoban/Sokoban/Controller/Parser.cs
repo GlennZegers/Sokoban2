@@ -88,6 +88,10 @@ namespace Sokoban
                             game.DesFieldCounter++;
                             fs.Add(f[x, y]);
                             break;
+                        case '~':
+                            f[x, y] = new PitfallField();
+                            fs.Add(f[x, y]);
+                            break;
                         case '@':
                             
                             f[x, y] = new Field { Moveable = new Player() };

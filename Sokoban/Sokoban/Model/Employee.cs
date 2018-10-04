@@ -14,6 +14,10 @@ namespace Sokoban.Model
 
         public void Move()
         {
+            if(CurrentField == null)
+            {
+                return;
+            }
             _randomDirection = RandomNumber(1, 5);
             switch (_randomDirection)
             {   
@@ -34,13 +38,12 @@ namespace Sokoban.Model
 
         public override Boolean MoveRight()
         {
-            CurrentField.RightField.Move(1, this);
-            return false;
+                CurrentField.RightField.Move(1, this);
+                return false;
         }
 
         public override Boolean MoveLeft()
         {
-            _randomDirection = RandomNumber(1, 4);
             CurrentField.LeftField.Move(2, this);
             return false;
         }
