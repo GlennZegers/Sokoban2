@@ -73,7 +73,7 @@ namespace Sokoban.Model
                     {
                         shouldMove = this.Moveable.MoveUp();
                     }
-                    if (shouldMove && AmountOfObjects < 3)
+                    if (shouldMove)
                     {
                         this.Moveable = UpperField.Moveable;
                         moveable.CurrentField = this;
@@ -90,7 +90,7 @@ namespace Sokoban.Model
                     {
                         shouldMove = this.Moveable.MoveDown();
                     }
-                    if (shouldMove && AmountOfObjects < 3)
+                    if (shouldMove)
                     {
                         this.Moveable = LowerField.Moveable;
                         moveable.CurrentField = this;
