@@ -47,6 +47,7 @@ namespace Sokoban
                 _inputView.MakeAMove();
                 _outputView.StandardScreen(FirstField, parser.levelWidth, parser.levelHeight);
                 Console.WriteLine(DesFieldCounter + "   " + WinCounter);
+               // Console.WriteLine(Employee.Asleep);
             }
             _outputView.PlayerHasWonScreen();
             StartOver();

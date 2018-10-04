@@ -9,16 +9,36 @@ namespace Sokoban.Model
    public  class Employee : Moveable
     {
         public override Field CurrentField { get; set; }
-        public Boolean Asleep { get; set; }
+        private Boolean Asleep { get; set; }
         private int _randomDirection;
 
         public void Move()
         {
+            Asleep = true;
             if(CurrentField == null)
             {
                 return;
             }
+            if (Asleep)
+            {
+                if(RandomNumber(1,11) == 3)
+                {
+                    Asleep = false;
+                }
+            }
+            else
+            {
+                if(RandomNumber(1,5) == 3)
+                {
+                    Asleep = true;
+                }
+            }
             _randomDirection = RandomNumber(1, 5);
+            Asleep = true;
+            if (Asleep)
+            {
+                return;
+            }
             switch (_randomDirection)
             {   
                 case 1:
@@ -34,6 +54,7 @@ namespace Sokoban.Model
                     MoveUp();
                     break;
             }
+     
         }
 
         public override Boolean MoveRight()
