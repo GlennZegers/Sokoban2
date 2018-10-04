@@ -50,6 +50,7 @@
     <Compile Include="Controller\Game.cs" />
     <Compile Include="Controller\Parser.cs" />
     <Compile Include="Model\Moveable.cs" />
+    <Compile Include="Model\PitfallField.cs" />
     <Compile Include="View\OutputView.cs" />
     <Compile Include="View\InputView.cs" />
     <Compile Include="Model\Player.cs" />
