@@ -22,7 +22,7 @@ namespace Sokoban
 
             while (!isValid)
             {
-                Console.WriteLine("> Kies een doolhof (1 - 4), s = stop");
+                Console.WriteLine("> Kies een doolhof (1 - 6), s = stop");
                 string input = Console.ReadLine();
 
                 if (input.Equals("s"))
