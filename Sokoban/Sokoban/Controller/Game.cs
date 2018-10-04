@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sokoban.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace Sokoban
     {
         public Parser parser { get; set; }
         public Player Player { get; set; }
+        public Employee Employee { get; set; }
         private OutputView _outputView;
         private InputView _inputView;
         public Field FirstField { get; set; }
@@ -21,12 +23,13 @@ namespace Sokoban
             DesFieldCounter = 0;
             WinCounter = 0;
             Player = new Player();
+            Employee = new Employee();
             parser = new Parser();
             _outputView = new OutputView();
             _inputView = new InputView(this);
             _outputView.StartMessage();
             Level = _inputView.ChooseMaze();
-            parser.CreateMaze(Level , Player, this);
+            parser.CreateMaze(Level , Player, this, Employee);
             FirstField = parser.firstField2;
             Play();
         }
@@ -60,7 +63,7 @@ namespace Sokoban
             Player = new Player();
             parser = new Parser();
             Level = _inputView.ChooseMaze();
-            parser.CreateMaze(Level, Player, this);
+            parser.CreateMaze(Level, Player, this, Employee);
             FirstField = parser.firstField2;
             Play();
         }
@@ -72,7 +75,7 @@ namespace Sokoban
             WinCounter = 0;
             Player = new Player();
             parser = new Parser();
-            parser.CreateMaze(Level, Player, this);
+            parser.CreateMaze(Level, Player, this, Employee);
             FirstField = parser.firstField2;
             Play();
         }

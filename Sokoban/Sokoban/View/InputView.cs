@@ -32,7 +32,7 @@ namespace Sokoban
                     return 0;
                 }
 
-                if (Regex.IsMatch(input, @"^\d+$") && Int32.Parse(input) >= 1 && Int32.Parse(input) <= 4)
+                if (Regex.IsMatch(input, @"^\d+$") && Int32.Parse(input) >= 1 && Int32.Parse(input) <= 6)
                 {
                     MazeNumber = Int32.Parse(input);
                     isValid = true;
@@ -61,18 +61,22 @@ namespace Sokoban
                         break;
                     case ConsoleKey.RightArrow:
                         game.Player.MoveRight();
+                        game.Employee.Move();
                         IsValid = true;
                         break;
                     case ConsoleKey.LeftArrow:
                         game.Player.MoveLeft();
+                        game.Employee.Move();
                         IsValid = true;
                         break;
                     case ConsoleKey.UpArrow:
                         game.Player.MoveUp();
+                        game.Employee.Move();
                         IsValid = true;
                         break;
                     case ConsoleKey.DownArrow:
                         game.Player.MoveDown();
+                        game.Employee.Move();
                         IsValid = true;
                         break;
                     default:

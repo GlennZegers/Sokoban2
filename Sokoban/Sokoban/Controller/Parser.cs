@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sokoban.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,7 @@ namespace Sokoban
             OutputView p = new OutputView();
             p.StandardScreen(firstField2, levelWidth, levelHeight);
         }
-        public void CreateMaze(int level, Player player, Game game)
+        public void CreateMaze(int level, Player player, Game game, Model.Employee employee)
         {
             string[] maze = null;
             switch (level)
@@ -39,18 +40,24 @@ namespace Sokoban
                 case 4:
                     maze = System.IO.File.ReadAllLines(@"D:\Doolhof\Doolhof4.txt");
                     break;
+                case 5:
+                    maze = System.IO.File.ReadAllLines(@"D:\Doolhof\Doolhof5.txt");
+                    break;
+                case 6:
+                    maze = System.IO.File.ReadAllLines(@"D:\Doolhof\Doolhof6.txt");
+                    break;
                 default:
-                    Console.WriteLine("choose between 1 and 4");
+                    Console.WriteLine("choose between 1 and 6");
                     break;
 
             }
             char[,] charArray = CreateCharField(maze);
-            CreateFields(charArray, player, game);
+            CreateFields(charArray, player, game, employee);
             print();
 
         }
 
-        private void CreateFields(char[,] charArray , Player p, Game game)
+        private void CreateFields(char[,] charArray , Player p, Game game, Employee employee)
         {
             List<Field> fs = new List<Field>();
             //Create 2d array with fields
@@ -85,6 +92,11 @@ namespace Sokoban
                             
                             f[x, y] = new Field { Moveable = new Player() };
                             p.CurrentField = f[x, y];
+                            fs.Add(f[x, y]);
+                            break;
+                        case '$':
+                            f[x, y] = new Field { Moveable = new Employee() };
+                            employee.CurrentField = f[x, y];
                             fs.Add(f[x, y]);
                             break;
                         case ' ':

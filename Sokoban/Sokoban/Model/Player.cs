@@ -9,6 +9,7 @@ namespace Sokoban
     public class Player : Moveable
     {
         public override Field CurrentField { get; set; }
+ 
 
         public override Boolean MoveRight()
         {
