@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sokoban.Model
 {
-   public  class Employee : Moveable
+    public class Employee : Moveable
     {
         public override Field CurrentField { get; set; }
         private Boolean Asleep { get; set; }
@@ -14,70 +14,81 @@ namespace Sokoban.Model
 
         public void Move()
         {
-            Asleep = true;
-            if(CurrentField == null)
+            if (CurrentField == null)
             {
                 return;
             }
             if (Asleep)
             {
-                if(RandomNumber(1,11) == 3)
+                if (RandomNumber(10, 20) == 13)
                 {
                     Asleep = false;
                 }
             }
             else
             {
-                if(RandomNumber(1,5) == 3)
+                if (RandomNumber(10, 15) == 13)
                 {
                     Asleep = true;
                 }
             }
             _randomDirection = RandomNumber(1, 5);
-            Asleep = true;
+
             if (Asleep)
             {
                 return;
             }
             switch (_randomDirection)
-            {   
+            {
                 case 1:
-                    MoveRight();
+                    MoveRight(false);
                     break;
                 case 2:
-                    MoveLeft();
+                    MoveLeft(false);
                     break;
                 case 3:
-                    MoveDown();
+                    MoveDown(false);
                     break;
                 case 4:
-                    MoveUp();
+                    MoveUp(false);
                     break;
             }
-     
+
         }
 
-        public override Boolean MoveRight()
+        public override Boolean MoveRight(Boolean fromEmployee)
         {
+            if (!fromEmployee)
+            {
                 CurrentField.RightField.Move(1, this);
-                return false;
-        }
-
-        public override Boolean MoveLeft()
-        {
-            CurrentField.LeftField.Move(2, this);
+            }
             return false;
         }
 
-        public override Boolean MoveUp()
+        public override Boolean MoveLeft(Boolean fromEmployee)
         {
-            CurrentField.LowerField.Move(3, this);
+            if (!fromEmployee)
+            {
+                CurrentField.LeftField.Move(2, this);
+            }
             return false;
         }
 
-        public override Boolean MoveDown()
+        public override Boolean MoveUp(Boolean fromEmployee)
         {
-            CurrentField.UpperField.Move(4, this);
+            if (!fromEmployee)
+            {
+                CurrentField.LowerField.Move(3, this);
+            }
+            return false;
+        }
+
+        public override Boolean MoveDown(Boolean fromEmployee)
+        {
+            if (!fromEmployee)
+            {
+                CurrentField.UpperField.Move(4, this);
+            }
             return false;
         }
 
@@ -99,6 +110,11 @@ namespace Sokoban.Model
         {
             Random random = new Random();
             return random.Next(min, max);
+        }
+
+        public override void WakeUp()
+        {
+            Asleep = false;
         }
     }
 }

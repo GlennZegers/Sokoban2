@@ -8,12 +8,13 @@ namespace Sokoban.Model
 {
     public abstract class Moveable
     {
-        public abstract Boolean MoveUp();
-        public abstract Boolean MoveDown();
-        public abstract Boolean MoveLeft();
-        public abstract Boolean MoveRight();
+        public abstract Boolean MoveUp(Boolean fromEmployee);
+        public abstract Boolean MoveDown(Boolean fromEmployee);
+        public abstract Boolean MoveLeft(Boolean fromEmployee);
+        public abstract Boolean MoveRight(Boolean fromEmployee);
         public abstract String Print();
         public abstract String PrintOnDesField();
         public abstract Field CurrentField { get; set; }
+        public abstract void WakeUp();
     }
 }

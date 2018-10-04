@@ -9,39 +9,40 @@ namespace Sokoban
     public class Player : Moveable
     {
         public override Field CurrentField { get; set; }
- 
 
-        public override Boolean MoveRight()
+        public override Boolean MoveRight(Boolean fromEmployee)
         {
-            CurrentField.RightField.Move(1, this);
-            return false;
+            return CurrentField.RightField.Move(1, this);
         }
 
-        public override Boolean MoveLeft()
+        public override Boolean MoveLeft(Boolean fromEmployee)
         {
-            CurrentField.LeftField.Move(2, this);
-            return false;
+            return CurrentField.LeftField.Move(2, this);
         }
 
-        public override Boolean MoveUp()
+        public override Boolean MoveUp(Boolean fromEmployee)
         {
-            CurrentField.LowerField.Move(3, this);
-            return false;
+            return CurrentField.LowerField.Move(3, this);
         }
 
-        public override Boolean MoveDown()
+        public override Boolean MoveDown(Boolean fromEmployee)
         {
-            CurrentField.UpperField.Move(4, this);
-            return false;
+            return CurrentField.UpperField.Move(4, this);
         }
 
         public override string Print()
         {
             return "@";
         }
+
         public override string PrintOnDesField()
         {
             return "@";
+        }
+
+        public override void WakeUp()
+        {
+            return;
         }
     }
 }

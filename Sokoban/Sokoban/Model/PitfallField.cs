@@ -30,7 +30,7 @@ namespace Sokoban.Model
             return "~";
         }
 
-        public override void Move(int direction, Moveable moveable)
+        public override Boolean Move(int direction, Moveable moveable)
         {
             Boolean shouldMove = true;
             switch (direction)
@@ -38,7 +38,7 @@ namespace Sokoban.Model
                 case 1: // right
                     if (this.Moveable != null)
                     {
-                        shouldMove = this.Moveable.MoveRight();
+                        shouldMove = this.Moveable.MoveRight(true);
                     }
                     if (shouldMove)
                     {
@@ -50,11 +50,11 @@ namespace Sokoban.Model
                             AmountOfObjects++;
                         }
                     }
-                    break;
+                    return shouldMove;
                 case 2: // left
                     if (this.Moveable != null)
                     {
-                        shouldMove = this.Moveable.MoveLeft();
+                        shouldMove = this.Moveable.MoveLeft(true);
                     }
                     if (shouldMove)
                     {
@@ -67,11 +67,11 @@ namespace Sokoban.Model
                         }
                     }
 
-                    break;
+                    return shouldMove;
                 case 3: // up
                     if (this.Moveable != null)
                     {
-                        shouldMove = this.Moveable.MoveUp();
+                        shouldMove = this.Moveable.MoveUp(true);
                     }
                     if (shouldMove)
                     {
@@ -84,11 +84,11 @@ namespace Sokoban.Model
                         }
                     }
 
-                    break;
+                    return shouldMove;
                 case 4: // down
                     if (this.Moveable != null)
                     {
-                        shouldMove = this.Moveable.MoveDown();
+                        shouldMove = this.Moveable.MoveDown(true);
                     }
                     if (shouldMove)
                     {
@@ -100,8 +100,9 @@ namespace Sokoban.Model
                             AmountOfObjects++;
                         }
                     }
-                    break;
+                    return shouldMove;
             }
+            return false;
         }
 
         public override Boolean TakeInCrate(int direction)

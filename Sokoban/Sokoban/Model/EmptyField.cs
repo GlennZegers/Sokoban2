@@ -9,9 +9,9 @@ namespace Sokoban
 {
     class EmptyField : Field
     {
-       public override void Move(int Direction, Moveable moveable)
+        public override Boolean Move(int Direction, Moveable moveable)
         {
-            return;
+            return false;
         }
 
         public override String Print()

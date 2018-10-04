@@ -8,7 +8,7 @@ namespace Sokoban
 {
     public class DestinationField : Field
     {
-     
+
         public override String Print()
         {
             if (Moveable != null)
@@ -23,11 +23,11 @@ namespace Sokoban
             Game.WinCounter--;
         }
 
-        public override  void RaiseCounter()
+        public override void RaiseCounter()
         {
             Game.WinCounter++;
         }
 
-        
+
     }
 }

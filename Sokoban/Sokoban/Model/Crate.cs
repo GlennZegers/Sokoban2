@@ -10,7 +10,7 @@ namespace Sokoban
     {
         public override Field CurrentField { get; set ; }
 
-        public override Boolean MoveDown()
+        public override Boolean MoveDown(Boolean fromEmployee)
         {
           if (CurrentField.UpperField.TakeInCrate(3))
           {
@@ -21,7 +21,7 @@ namespace Sokoban
             return false;
         }
 
-        public override Boolean MoveLeft()
+        public override Boolean MoveLeft(Boolean fromEmployee)
         {
            if(CurrentField.LeftField.TakeInCrate(2))
             {
@@ -32,7 +32,7 @@ namespace Sokoban
             return false;
         }
 
-        public override Boolean MoveRight()
+        public override Boolean MoveRight(Boolean fromEmployee)
         {
            if(CurrentField.RightField.TakeInCrate(1))
             {
@@ -43,7 +43,7 @@ namespace Sokoban
             return false;
         }
 
-        public override Boolean MoveUp()
+        public override Boolean MoveUp(Boolean fromEmployee)
         {
            if (CurrentField.LowerField.TakeInCrate(4))
             {
@@ -58,9 +58,15 @@ namespace Sokoban
         {
             return "o";
         }
+
         public override string PrintOnDesField()
         {
             return "0";
+        }
+
+        public override void WakeUp()
+        {
+            return;
         }
     }
 

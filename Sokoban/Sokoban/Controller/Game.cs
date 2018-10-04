@@ -14,7 +14,7 @@ namespace Sokoban
         private OutputView _outputView;
         private InputView _inputView;
         public Field FirstField { get; set; }
-        public int Level { get; set; } 
+        public int Level { get; set; }
         public int WinCounter { get; set; }
         public int DesFieldCounter { get; set; }
 
@@ -29,7 +29,7 @@ namespace Sokoban
             _inputView = new InputView(this);
             _outputView.StartMessage();
             Level = _inputView.ChooseMaze();
-            parser.CreateMaze(Level , Player, this, Employee);
+            parser.CreateMaze(Level, Player, this, Employee);
             FirstField = parser.firstField2;
             Play();
         }
@@ -46,8 +46,6 @@ namespace Sokoban
             {
                 _inputView.MakeAMove();
                 _outputView.StandardScreen(FirstField, parser.levelWidth, parser.levelHeight);
-                Console.WriteLine(DesFieldCounter + "   " + WinCounter);
-               // Console.WriteLine(Employee.Asleep);
             }
             _outputView.PlayerHasWonScreen();
             StartOver();

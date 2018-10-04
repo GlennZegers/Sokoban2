@@ -13,16 +13,14 @@ namespace Sokoban
         private char[,] charField;
         public Field firstField2 { get; set; }
         private Boolean first = true;
-        public char[,] CharField
-        {
-            get { return charField; }
-            set { charField = value; }
-        }
+        public char[,] CharField { get; set; }
+    
         public void print()
         {
             OutputView p = new OutputView();
             p.StandardScreen(firstField2, levelWidth, levelHeight);
         }
+
         public void CreateMaze(int level, Player player, Game game, Model.Employee employee)
         {
             string[] maze = null;
@@ -57,14 +55,14 @@ namespace Sokoban
 
         }
 
-        private void CreateFields(char[,] charArray , Player p, Game game, Employee employee)
+        private void CreateFields(char[,] charArray, Player p, Game game, Employee employee)
         {
             List<Field> fs = new List<Field>();
             //Create 2d array with fields
             Field[,] f = new Field[levelWidth, levelHeight];
             for (int x = 0; x < levelWidth; x++)
             {
-                for (int y = levelHeight - 1; y>- 1; y--)
+                for (int y = levelHeight - 1; y > -1; y--)
                 {
                     char c = charArray[x, y];
                     switch (c)
@@ -72,7 +70,6 @@ namespace Sokoban
                         case '#':
                             f[x, y] = new Wall();
                             fs.Add(f[x, y]);
-                            
                             break;
                         case '.':
                             f[x, y] = new Field { Game = game };
@@ -93,13 +90,12 @@ namespace Sokoban
                             fs.Add(f[x, y]);
                             break;
                         case '@':
-                            
-                            f[x, y] = new Field { Moveable = new Player() };
+                            f[x, y] = new Field { Moveable = p };
                             p.CurrentField = f[x, y];
                             fs.Add(f[x, y]);
                             break;
                         case '$':
-                            f[x, y] = new Field { Moveable = new Employee() };
+                            f[x, y] = new Field { Moveable = employee };
                             employee.CurrentField = f[x, y];
                             fs.Add(f[x, y]);
                             break;
@@ -111,7 +107,7 @@ namespace Sokoban
                 }
             }
             //link the fields with each other
-            
+
             for (int x = 0; x < levelWidth; x++)
             {
                 for (int y = levelHeight - 1; y > 0; y--)
@@ -120,46 +116,42 @@ namespace Sokoban
                     {
                         firstField2 = f[x, y];
                         first = false;
-                        
                     }
-                    if(y != levelHeight -1)
+                    if (y != levelHeight - 1)
                     {
                         f[x, y].UpperField = f[x, y + 1];
                     }
-                    if(y != 0)
+                    if (y != 0)
                     {
                         f[x, y].LowerField = f[x, y - 1];
                     }
-                    if(x != 0)
+                    if (x != 0)
                     {
                         f[x, y].LeftField = f[x - 1, y];
                     }
-                    if(x != levelWidth - 1)
+                    if (x != levelWidth - 1)
                     {
                         f[x, y].RightField = f[x + 1, y];
                     }
-
                 }
             }
-         
-          
         }
 
         private char[,] CreateCharField(String[] maze)
         {
             this.levelHeight = maze.Length;
             this.levelWidth = maze[0].Length;
-            for(int i = 0; i< maze.Length; i++)
+            for (int i = 0; i < maze.Length; i++)
             {
-                if(levelWidth < maze[i].Length)
+                if (levelWidth < maze[i].Length)
                 {
                     levelWidth = maze[i].Length;
                 }
             }
-            char[,] tempArray = new char[levelWidth,maze.Length];
-            for(int x = 0; x < maze.Length; x++)
+            char[,] tempArray = new char[levelWidth, maze.Length];
+            for (int x = 0; x < maze.Length; x++)
             {
-                for (int y = 0; y<maze[x].Length; y++)
+                for (int y = 0; y < maze[x].Length; y++)
                 {
                     tempArray[y, x] = maze[x].ElementAt(y);
                 }

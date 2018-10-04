@@ -63,7 +63,7 @@ namespace Sokoban
             return true;
         }
 
-        public virtual void Move(int direction, Moveable moveable)
+        public virtual Boolean Move(int direction, Moveable moveable)
         {
             Boolean shouldMove = true;
             switch (direction)
@@ -71,7 +71,8 @@ namespace Sokoban
                 case 1: // right
                     if (this.Moveable != null)
                     {
-                        shouldMove = this.Moveable.MoveRight();
+                        this.Moveable.WakeUp();
+                        shouldMove = this.Moveable.MoveRight(true);
                     }
                     if (shouldMove)
                     {
@@ -79,11 +80,12 @@ namespace Sokoban
                         moveable.CurrentField = this;
                         LeftField.Moveable = null;
                     }
-                    break;
+                    return shouldMove;
                 case 2: // left
                     if (this.Moveable != null)
                     {
-                        shouldMove = this.Moveable.MoveLeft();
+                        this.Moveable.WakeUp();
+                        shouldMove = this.Moveable.MoveLeft(true);
                     }
                     if (shouldMove)
                     {
@@ -91,12 +93,12 @@ namespace Sokoban
                         moveable.CurrentField = this;
                         RightField.Moveable = null;
                     }
-                   
-                    break;
+                    return shouldMove;
                 case 3: // up
                     if (this.Moveable != null)
                     {
-                        shouldMove = this.Moveable.MoveUp();
+                        this.Moveable.WakeUp();
+                        shouldMove = this.Moveable.MoveUp(true);
                     }
                     if (shouldMove)
                     {
@@ -104,12 +106,12 @@ namespace Sokoban
                         moveable.CurrentField = this;
                         UpperField.Moveable = null;
                     }
-                 
-                    break;
+                    return shouldMove;
                 case 4: // down
                     if (this.Moveable != null)
                     {
-                       shouldMove = this.Moveable.MoveDown();
+                        this.Moveable.WakeUp();
+                        shouldMove = this.Moveable.MoveDown(true);
                     }
                     if (shouldMove)
                     {
@@ -117,8 +119,9 @@ namespace Sokoban
                         moveable.CurrentField = this;
                         LowerField.Moveable = null;
                     }
-                    break;
+                    return shouldMove;
             }
+            return false;
         }
 
         public virtual void LowerCounter()

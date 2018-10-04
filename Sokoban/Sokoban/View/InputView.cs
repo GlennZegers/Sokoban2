@@ -60,22 +60,27 @@ namespace Sokoban
                         IsValid = true;
                         break;
                     case ConsoleKey.RightArrow:
-                        game.Player.MoveRight();
+                
+                        game.Player.MoveRight(false);
                         game.Employee.Move();
                         IsValid = true;
                         break;
                     case ConsoleKey.LeftArrow:
-                        game.Player.MoveLeft();
+                       
+                        game.Player.MoveLeft(false);
                         game.Employee.Move();
                         IsValid = true;
                         break;
                     case ConsoleKey.UpArrow:
-                        game.Player.MoveUp();
+                       
+                        game.Player.MoveUp(false);
                         game.Employee.Move();
+
                         IsValid = true;
                         break;
                     case ConsoleKey.DownArrow:
-                        game.Player.MoveDown();
+                   
+                        game.Player.MoveDown(false);
                         game.Employee.Move();
                         IsValid = true;
                         break;

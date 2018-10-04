@@ -35,10 +35,7 @@ namespace Sokoban
             Console.WriteLine("| Sokoban  |");
             Console.WriteLine("└──────────┘");
             Console.WriteLine("─────────────────────────────────────────────────────────────────────────");
-
-            //hier komt dan het doolhof te staan
             PrintMaze(startingField, mazeWidth, mazeLength);
-
             Console.WriteLine("─────────────────────────────────────────────────────────────────────────");
             Console.WriteLine("> gebruik pijljestoetsen(s = stop, r = reset)");
         }
