@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Sokoban.Field">
-    <Position X="10" Y="0.75" Width="1.5" />
+    <Position X="9.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAAAAAAAAIAAABAAAAAAIAIAAAgAAAQAAAAAAKAEQAI=</HashCode>
       <FileName>Model\Field.cs</FileName>
@@ -11,28 +11,28 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.DestinationField">
-    <Position X="6.75" Y="4.75" Width="1.5" />
+    <Position X="6" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAABAAAAAAAAIAAAAAAAAAAAAAAAAEAAA=</HashCode>
       <FileName>Model\DestinationField.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Wall">
-    <Position X="9" Y="4.75" Width="1.5" />
+    <Position X="8.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAACAEAAA=</HashCode>
       <FileName>Model\Wall.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Crate">
-    <Position X="9" Y="11.25" Width="1.5" />
+    <Position X="8.25" Y="11" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAAAAAAAAEAAAAAEAAAAAAAAIQAAAAAAEEAA=</HashCode>
       <FileName>Model\Crate.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Game">
-    <Position X="4.25" Y="6" Width="1.5" />
+    <Position X="3.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAEABAAAAAEAAAAEBAAACAAAAABBgAAAASIAIAA=</HashCode>
       <FileName>Controller\Game.cs</FileName>
@@ -46,56 +46,56 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Player">
-    <Position X="6.75" Y="11.25" Width="1.5" />
+    <Position X="6" Y="11" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAAAAAAAAEAAAAAEAAAAAAAAIQAAAAAAEEAA=</HashCode>
       <FileName>Model\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.InputView">
-    <Position X="1.25" Y="3.5" Width="1.5" />
+    <Position X="0.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAABAAAAAIAAAAAAAAAAA=</HashCode>
       <FileName>View\InputView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.OutputView">
-    <Position X="1.25" Y="6.5" Width="1.5" />
+    <Position X="0.5" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAIAAAAAAAAAAAAAAAAAgAAAAAAAiAAAAAAAAAAAAA=</HashCode>
       <FileName>View\OutputView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Parser">
-    <Position X="1.25" Y="9.25" Width="1.5" />
+    <Position X="0.5" Y="9" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAIEAAAABgAAAEAAAABAACAAAAAAAAAAAAFAAA=</HashCode>
       <FileName>Controller\Parser.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.EmptyField">
-    <Position X="11.25" Y="4.75" Width="1.5" />
+    <Position X="10.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAACAEAAA=</HashCode>
       <FileName>Model\EmptyField.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Model.Moveable">
-    <Position X="9" Y="7.75" Width="1.5" />
+    <Position X="8.25" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAAAAAAAAEAAAAAEAAAAAAAAIQAAAAAAEEAA=</HashCode>
       <FileName>Model\Moveable.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Model.PitfallField">
-    <Position X="13.5" Y="4.75" Width="1.5" />
+    <Position X="12.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAACAAAAAAAACAEAAA=</HashCode>
       <FileName>Model\PitfallField.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Model.Employee">
-    <Position X="11.25" Y="11.25" Width="1.5" />
+    <Position X="10.5" Y="11" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAAEBAIAAAAAAEAAAAAEAAAAAAAAIQAAAAAAEEAQ=</HashCode>
       <FileName>Model\Employee.cs</FileName>
